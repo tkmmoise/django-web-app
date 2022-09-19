@@ -1,0 +1,15 @@
+{% extends "listings/base.html" %} {% block content %}
+<a href="{% url 'band-create' %}">Créer un nouveau groupe</a>
+<h1>Hello Django !</h1>
+<p>J'ai {{bands|length}} groupes preferes</p>
+
+<ul>
+  {% for band in bands %}
+  <li>
+    <a href=" {% url 'band-detail' band.id %} ">{{ band.name|upper }}</a>----
+    <a href=" {% url 'band-update' band.id %} ">Modifier</a>----
+    <a href=" {% url 'band-delete' band.id %} ">Supprimer</a>
+  </li>
+  {% endfor %}
+</ul>
+{% endblock %}
